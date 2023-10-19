@@ -1,0 +1,7 @@
+joblib
+pydantic
+mlflow
+pandas
+pyyaml
+fastapi
+uvicorn
