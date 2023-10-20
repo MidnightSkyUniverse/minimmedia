@@ -1,4 +1,4 @@
-![website-shield]
+[![Website][website-shield]][website-link]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -56,5 +56,5 @@ Repeated logs may appear as:This will result in logs showing
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alibinkowska
 [website-shield]: https://img.shields.io/badge/Website%20-%20Ali%20Binkowska%20-%2000CCFF?style=for-the-badge&color=00CCFF&link=https%3A%2F%2Falibinkowska.co
-
+[website-link]: https://alibinkowska.co
 
