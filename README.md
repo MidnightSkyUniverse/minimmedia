@@ -57,6 +57,6 @@ Repeated logs may appear as:This will result in logs showing
 [name-shield]: https://img.shields.io/badge/Author-Ali%20Binkowska-blueviolet?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alibinkowska
-[website-shield]: https://img.shields.io/badge/Website%20-%20Ali%20Binkowska%20-%2000CCFF?style=for-the%20badge%20&color=00CCFF&link=https%3A%2F%2Falibinkowska.co
+[website-shield]: https://img.shields.io/badge/Website%20-%20Ali%20Binkowska%20-%2000CCFF?style=for-the-badge%20&color=00CCFF&link=https%3A%2F%2Falibinkowska.co
 
 
