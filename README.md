@@ -4,46 +4,45 @@
 
 ## MLFlow + FastAPI model serving
 
-The code has been used to create model serving  API  with FastAPI and MLFlow.
-The requirements were to start API without an existing model and load a model once it becomes available.
+This repository provides code for serving models via an API using FastAPI and MLFlow. 
+A distinctive feature is that the API can start even if a model is not yet available. 
+The system will then periodically check for the availability of a new production model and load it once ready.
 
-The code introduces a loop that awaits status change - the status indicate that the new Production model is ready
-and can be loaded. The status change is initiated by GET request sent to URL.
-
-
+### How it works
+The code continuously monitors a status indicating the availability of a new production model. 
+A status change, signaling that the model is ready to be loaded, is triggered by a GET request to a specific URL.
 
 ## Preliminary steps
 
-### Create environment
-Using conda or miniconda install virtual environment:
+### Set Up the Environment
+To prepare your environment, you can use either conda or miniconda:
 
 ```bash
 > conda env create -n <env_name>
 > conda activate <env_name>
-> pip install ir requirements.txt
+> pip install -r requirements.txt
 ```
 
-### Start MLFlow server
+### Launch MLFlow Server
 `mlflow server -p 5001 --host 0.0.0.0`
 
-### Start FastAPI server
+### Start the FastAPI Server
 `gunicorn app:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:5002 --timeout 120`
 
-First you see warning about missing model.
+Upon initialization, you may notice a warning about a missing model:
 ```commandline
 [2023-10-20 07:52:24 +0200] [9776] [INFO] Waiting for application startup.
 (WARNING):  app: model is not available!
 [2023-10-20 07:52:24 +0200] [9776] [INFO] Application startup complete.
-
 ```
 
 The code checks for model once and while there is a loop checking status of a model every 10 seconds,
 the status is set to True to model so we don't try to load the model until we are sure MLFlow server can serve a model.
+The system checks the model's status periodically. While in monitoring mode, the system will not attempt to load a model unless it's certain the MLFlow server can serve it.
 
-GET request sent to localhost:5002/reload will change status of a variable to False,
-and since that moment there will be a funciton querying MLFlow for a model until one is available to be loaded.
+Sending a GET request to localhost:5002/reload will change the status, prompting the system to actively query the MLFlow server until a model becomes available.
 
-This will result in logs showing
+Repeated logs may appear as:This will result in logs showing
 ```
 (WARNING):  app: model is not available!
 (WARNING):  app: model is not available!
